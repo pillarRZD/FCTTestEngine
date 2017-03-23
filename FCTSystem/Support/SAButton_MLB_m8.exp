@@ -1,0 +1,212 @@
+#!/usr/bin/expect
+
+set timeout 5
+set mlbPWD "root"
+set m8PWD "alpine"
+set hostName [lindex $argv 0]
+set target  [lindex $argv 1]
+set action  [lindex $argv 2]
+set command [lindex $argv 3]
+set inputHeader "*#"
+
+for {set i 4} {$i < $argc} {incr i} {
+    set command "$command [lindex $argv $i]"
+}
+
+set target_mlb mlb
+set target_m8  m8
+set value "/tmp/ssh.txt"
+
+#spawn ssh -p 22 Jack.MT@localhost
+spawn ssh -p 22 root@$hostName
+
+expect {
+    "(yes/no)?" {
+        send "yes\r"
+        exp_continue
+    }
+    "*assword:" {
+        send "$mlbPWD\r"
+    }
+}
+
+expect "$inputHeader"
+#send "clear\r"
+send "echo login_mlb_success\r"
+
+switch $target {
+    mlb {
+        switch $action {
+            test {
+                expect "$inputHeader"
+                send "$command\r"
+                expect "$inputHeader"
+                #puts "<OK>"
+                exit 0
+            }
+            0 {
+                expect "$inputHeader"
+                send "$command\r"
+                set timeout 1
+                set count 0
+                expect {
+                    -re "(\[01.]+)\r.*#" {
+                        send "echo Success\r"
+                    }
+                    timeout {
+                        send "echo Fail\r"
+                    }
+                }
+                expect "$inputHeader"
+                exit 0
+            }
+            1 {
+                expect "$inputHeader"
+                send "$command\r"
+                set timeout 1
+                set count 0
+                expect {
+                    -re "(\[01.]+)\r.*#" {
+                        send "echo Success\r"
+                        #set count [expr $count+1]
+                        #if {$count <= 5 || "$expect_out(1,string)" == "1.000000"} {
+                        #expect "$inputHeader"
+                        #send "$command\r"
+                        #exp_continue
+                        #} else {
+                        #puts "Success\r"
+                        #}
+                    }
+                    timeout {
+                        send "echo Fail\r"
+                    }
+                }
+                expect "$inputHeader"
+                exit 0
+            }
+            2 {
+                expect "$inputHeader"
+                send "$command\r"
+                expect "$inputHeader"
+                send "ypc2 -r -k NOPB\r"
+                set timeout 1
+                expect {
+                    -re "01\r.+#" {
+                        send "echo Success\r"
+                    }
+                    timeout {
+                        send "echo Fail\r"
+                    }
+                }
+                expect "$inputHeader"
+            }
+            3 {
+                expect "$inputHeader"
+                send "$command\r"
+                expect "$inputHeader"
+                send "ypc2 -r -k NOPB\r"
+                set timeout 1
+                expect {
+                    -re "00\r.+#" {
+                        send "echo Success\r"
+                    }
+                    timeout {
+                        send "echo Fail\r"
+                    }
+                }
+                expect "$inputHeader"
+            }
+            4 {
+                expect "$inputHeader"
+                send "$command\r"
+                expect "$inputHeader"
+                send "echo Success\r"
+                expect "$inputHeader"
+            }
+            default {
+                send "echo action error:$target-$action\r"
+                exit 1
+            }
+        }
+    }
+    m8 {
+        switch $action {
+            init {
+                set timeout 70
+                expect "$inputHeader"
+                    send "$command\r"
+                    expect {
+                        "$inputHeader" {
+                            
+                        }
+                        timeout {
+                            send "\003"
+                            expect "$inputHeader"
+                        }
+                    }
+                
+                set timeout 1
+                send "ioreg | grep iProd\r"
+                expect {
+                    -re "iProd@(\[0-9]+).*#" {
+                        set expect_out(1,string)
+                        send "\r"
+                    }
+                    timeout {
+                        send "ioreg | grep iProd\r"
+                        exp_continue
+                    }
+                    
+                }
+                expect "$inputHeader"
+                    send "echo --M8 Initialized--\r"
+                expect "$inputHeader"
+                exit 0
+                #expect "$inputHeader"
+            }
+            test {
+                send "ioreg | grep iProd\r"
+                expect {
+                    -re "iProd@(\[0-9]+).*#" {
+                        set expect_out(1,string)
+                        send "\r"
+                    }
+                    timeout {
+                        send "ioreg | grep iProd\r"
+                        exp_continue
+                    }
+                    
+                }
+                set timeout 5
+                expect "$inputHeader"
+                    send "tcprelay --portoffset 10000 --locationid 0x$expect_out(1,string) ssh &\r"
+                expect "$inputHeader"
+                    send "ssh -p 10022 root@localhost\r"
+                expect {
+                    "(yes/no)?" {
+                        send "yes\r"
+                        exp_continue
+                    }
+                    "*assword:" {
+                        send "$m8PWD\r"
+                    }
+                }
+                expect "$inputHeader"
+                send "$command\r"
+                expect "$inputHeader"
+                send "echo OK\r"
+                #expect "$inputHeader"
+                expect "$inputHeader"
+                exit 0
+            }
+            default {
+                send "echo action error:$target-$action\r"
+                exit 1
+            }
+        }
+    }
+    default {
+        send "echo taget error:$target\r"
+    }
+ }
+exit

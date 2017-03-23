@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[DAQDevice socket:didReadData:withTag:]:DAQDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_tagCounter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKSocketDevice sendCommand:withParamDic:]:JKSocketDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_commandSuffix">
+            </PersistentString>
+            <PersistentString
+               value = "_synchFlag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKSerialDevice sendCommand:withParamDic:]:JKSerialDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_serialPort">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKSocketDevice open]:JKSocketDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_serverIP">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DebugWindow sendCommand]:DebugWindow.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_currentOperation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKSocketDevice readFeedBackWithParamDic:]:JKSocketDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_synchFlag">
+            </PersistentString>
+            <PersistentString
+               value = "_synchLock">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

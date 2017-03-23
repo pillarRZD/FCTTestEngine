@@ -1,0 +1,3 @@
+erase
+loadfile /vault/Fireware/B431-16B-full-01050017.bin, 0x08000000
+exit

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[JKCommAction communicateWithDevice:withParamDic:]:JKCommAction.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_endMark">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKDeviceManager testBeginWithParamDic:]:JKDeviceManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "device.configName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DAQDevice sendCommand:withParamDic:]:DAQDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_currentAction.endMark">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate getTHD]:AppDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate calcTHD]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "orgDatas">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DUTController initWithIndex:andSerialNumber:]:DUTController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_itemSet">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CSVDataLog writeSumary:SerialNumber:FixtureID:SLOT:Starttime:Endtime:StationName:SWVersion:ProductType:]:CSVDataLog.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DUTView changeItemState:]:DUTView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_ovItemView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DAQDevice socket:didReadData:withTag:]:DAQDevice.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate calcTHDReal]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "normValues">
+            </PersistentString>
+            <PersistentString
+               value = "observed.realp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate thdTest]:AppDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JKCommAction initWithParamDic:]:JKCommAction.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_endMark">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate applicationDidFinishLaunching:]:AppDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "__26-[JKAlertView setMessage:]_block_invoke_2:JKAlertView.m">
+      </ContextState>
+      <ContextState
+         contextName = "__30-[MainWindow checkSystemState]_block_invoke:MainWindow.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CSVLogDevice storageDataWithParams:]:CSVLogDevice.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ST_UARTDevice exist]:ST_UARTDevice.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_portPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JKDeviceManager testEndWithParamDic:]:JKDeviceManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "device.configName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ConfigWindow tabView:shouldSelectTabViewItem:]:ConfigWindow.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

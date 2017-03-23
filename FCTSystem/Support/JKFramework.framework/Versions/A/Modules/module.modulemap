@@ -1,0 +1,6 @@
+framework module JKFramework {
+  umbrella header "JKFramework.h"
+
+  export *
+  module * { export * }
+}

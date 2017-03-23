@@ -1,0 +1,76 @@
+#!/usr/bin/expect
+
+####  iProd => iBridge  (2016.05.)
+####    tcprelay  => ipv6   (2016.05.13)
+
+set timeout 5
+set username [lindex $argv 0]
+set password [lindex $argv 1]
+set path [lindex $argv 2]
+set cflagInput [lindex $argv 3]
+set site [lindex $argv 4]
+
+set cflag ""
+if {$cflagInput==1} {
+    set cflag "-c"
+}
+
+if { $site<0 } {
+    set site 0
+}
+
+set inputHeader "$username"
+
+set timeout 5
+spawn ssh -p 22 $username@localhost
+
+expect {
+    "(yes/no)?" {
+        send "yes\r"
+        exp_continue
+    }
+    "*assword:" {
+        send "$password\r"
+    }
+    "Could not resolve hostname" {
+        send "echo Could not resolve hostname:$hostname\r"
+        exit 0;
+    }
+    "Network is unreachable" {
+        exit 0
+    }
+    timeout {
+        send "echo '$timeoutFlag'\r"
+        exit 0
+    }
+}
+
+expect -re "$inputHeader"
+send "stty -echo\r"
+expect -re "$inputHeader"
+send "echo '\rLogin Successfully!'\r"
+expect "$inputHeader"
+send "echo 'Site: $site'\r"
+expect "$inputHeader"
+send "python $path $cflag -s $site\r"
+
+
+interact {
+    exit {
+    }
+    "Address already in use" {
+        exit 0
+    }
+    -re "(\[\000-\777])" {
+        send "$interact_out(1,string)\r"
+        expect "$inputHeader"
+        send "echo $endFlag\r"
+        expect "$inputHeader"
+    }
+    -re "Connection to \[0-9.] closed" {
+        exit 0
+    }
+}
+
+
+exit 0
