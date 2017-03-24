@@ -113,6 +113,7 @@
 		04EF50DE1D52D32000CF3606 /* DebugWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EF50DB1D52D32000CF3606 /* DebugWindow.h */; };
 		04EF50DF1D52D32000CF3606 /* DebugWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF50DC1D52D32000CF3606 /* DebugWindow.m */; };
 		04EF50E01D52D32000CF3606 /* DebugWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04EF50DD1D52D32000CF3606 /* DebugWindow.xib */; };
+		859673EC1E84A5FD00FFAB7F /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 859673EB1E84A5FD00FFAB7F /* README.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -243,6 +244,7 @@
 		04EF50DB1D52D32000CF3606 /* DebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugWindow.h; path = View/DebugWindow.h; sourceTree = "<group>"; };
 		04EF50DC1D52D32000CF3606 /* DebugWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugWindow.m; path = View/DebugWindow.m; sourceTree = "<group>"; };
 		04EF50DD1D52D32000CF3606 /* DebugWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DebugWindow.xib; path = View/DebugWindow.xib; sourceTree = "<group>"; };
+		859673EB1E84A5FD00FFAB7F /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 				04454CEA1D3C5C79009FB87D /* MainMenu.xib */,
 				04454CED1D3C5C79009FB87D /* Info.plist */,
 				04454CE51D3C5C79009FB87D /* Supporting Files */,
+				859673EB1E84A5FD00FFAB7F /* README.rtf */,
 			);
 			path = FCTSystem;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				04B0920F1D62B7EE0020CAC7 /* JLinkComm.sh in Resources */,
 				049B41E61D3CAE0200D4F223 /* greenLed.png in Resources */,
 				04B84F731E4AF09300378B19 /* DevCategoryStateView.xib in Resources */,
+				859673EC1E84A5FD00FFAB7F /* README.rtf in Resources */,
 				049B41F21D3CAE0200D4F223 /* yellowLed.png in Resources */,
 				049B41E21D3CAE0200D4F223 /* comm_error.png in Resources */,
 				049B41E91D3CAE0200D4F223 /* none.png in Resources */,

@@ -60,6 +60,7 @@ _Pragma("clang diagnostic pop") \
 
 - (void)test
 {
+    NSLog(@"TEST");
 }
 
 
